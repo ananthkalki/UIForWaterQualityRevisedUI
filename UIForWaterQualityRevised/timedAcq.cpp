@@ -7,11 +7,8 @@
 #include <errno.h>
 #include <stdint.h>
 #include <wiringPi.h>
-#include <stdio.h>
-#include <ncurses.h>
-#include <time.h>
-#include <stdlib.h>
-#include <sys/time.h>
+#include <iostream>
+#include <fstream>
 #include <chrono>
 #include <ctime>
 
@@ -103,49 +100,51 @@ char export[]={"/export.csv"};
 char file_path[1000];
 uint32_t counts = 0;
 
-void main(int sec)
+int main(int sec)
 {
-	int ExpDone = 0;
-	int SetTime = sec;
-	int i;
-	double tdcval;
+    int ExpDone = 0;
+    int SetTime = sec;
+    int i;
+    double tdcval;
 
-	printf("%s\n",file_path);
-	printf("i am in C main function !!!!!!\n");
-	printf("i am in C main function !!!!!!\n");
-	printf("Sec = %d\n",SetTime);
-	printf("Sec = %d\n",SetTime);
+    std::cout << file_path << std::endl;
+    std::cout << "I am in C++ main function !!!!!!" << std::endl;
+    std::cout << "Sec = " << SetTime << std::endl;
+    std::cout << "Sec = " << SetTime << std::endl;
 
-	//REMOVE
+    // REMOVE
 
-	tdc_init();
-	printf("Sec = %d\n",SetTime);
+    tdc_init();
+    std::cout << "Sec = " << SetTime << std::endl;
 
-	FILE *fptr= fopen(file_path,"w");
-	if(fptr == NULL)
-		printf("File open failed: %s",strerror(errno));
-	fprintf(fptr,"tof\n");
-	fclose(fptr);
-	printf("Sec = %d\n",SetTime);
+    std::ofstream fptr(file_path);
+    if (!fptr.is_open())
+        std::cerr << "File open failed: " << strerror(errno) << std::endl;
 
-	auto time_start = std::chrono::system_clock::now();
+    fptr << "tof" << std::endl;
+    fptr.close();
+    std::cout << "Sec = " << SetTime << std::endl;
 
-	printf("starttime = %ld\n",time_start);
-	
-	while(1)
-	{	
-		if (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - time_start).count() > SetTime) {
+    auto time_start = std::chrono::system_clock::now();
+
+    std::cout << "starttime = " << time_start.time_since_epoch().count() << std::endl;
+
+    while (1)
+    {
+        if (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - time_start).count() > SetTime)
+        {
             break;
         }
-		tdcval = tdc_measure();
-		if(tdcval<=100.00)
-		{
-			//printf("TDC value is less than or equal to 100. Storing value...\n");
-			tdc_store(tdcval);
-		}
-		i=0;
-	}
+        tdcval = tdc_measure();
+        if (tdcval <= 100.00)
+        {
+            // std::cout << "TDC value is less than or equal to 100. Storing value..." << std::endl;
+            tdc_store(tdcval);
+        }
+        i = 0;
+    }
 
+    return 0;
 }
 
 void path(char letter, int clear)
