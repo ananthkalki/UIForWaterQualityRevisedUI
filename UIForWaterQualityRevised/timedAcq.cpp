@@ -85,7 +85,7 @@ uint32_t tdc_long_recv(uint8_t addr);
 void tdc_init();
 double tdc_measure();
 void tdc_store(double value);
-extern c{
+extern "C"{
     void path(char letter, int clear);
     void main_naan_dha(int sec);
 }
