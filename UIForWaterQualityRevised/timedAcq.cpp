@@ -87,7 +87,7 @@ double tdc_measure();
 void tdc_store(double value);
 extern C{
     void path(char letter, int clear);
-    void main(int sec);
+    void main_naan_dha(int sec);
 }
 
 
@@ -105,7 +105,13 @@ char exportFileName[] = "/export.csv";
 char file_path[1000];
 uint32_t counts = 0;
 
-void main(int sec)
+int main(int argc, char* argv[]) {
+    // This is just a placeholder; you can keep or remove it as needed
+    std::cout << "This is a placeholder main function." << std::endl;
+    return 0;
+}
+
+void main_naan_dha(int sec)
 {
     int ExpDone = 0;
     int SetTime = sec;
