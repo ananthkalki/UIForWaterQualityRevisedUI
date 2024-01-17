@@ -290,11 +290,13 @@ void tdc_init()
 double tdc_measure()
 {
 
+    std::cout << "waiting for tdc_measure pa" << time_start.time_since_epoch().count() << std::endl;
+
 	tdc_send(TI_TDC720x_CONFIG1_REG,0x01);//Start 
-	auto start_time = std::chrono::high_resolution_clock::now();
+	
 	while(GPIO_READ(tdc2_interu_pin))
 	{
-
+std::cout << "tdc_measure INGAYE SETHUTAN pa" << time_start.time_since_epoch().count() << std::endl;
 	};//Wait for start and stop
 	double calib1 = (double)tdc_long_recv(TI_TDC720x_CALIBRATION1_REG);
 	double calib2 = (double)tdc_long_recv(TI_TDC720x_CALIBRATION2_REG);
@@ -302,6 +304,7 @@ double tdc_measure()
 	double calcount = (calib2 - calib1) / (calib2periods - 1.0);
 	double normLSB = (clockperiod / calcount)*1000000000;
 	double TOF = tdctime * normLSB;
+     std::cout << "tdc_measure RETRUNING pa" << time_start.time_since_epoch().count() << std::endl;
 	return TOF;
 }
 
