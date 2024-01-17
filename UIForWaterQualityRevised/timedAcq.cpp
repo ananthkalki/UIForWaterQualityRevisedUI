@@ -1,6 +1,7 @@
 #include <linux/spi/spidev.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
+#include <sys/mman.h> 
 #include <unistd.h>
 #include <malloc.h>
 #include <string.h>
