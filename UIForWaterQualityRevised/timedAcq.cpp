@@ -97,7 +97,7 @@ int spi_toggle_cs = 0;
 double calib2periods = 10.0;
 double clockperiod = 1.0/clockfrequency;
 char sampleData[80];
-char export[]={"/export.csv"};
+char exportFileName[] = "/export.csv";
 char file_path[1000];
 uint32_t counts = 0;
 
