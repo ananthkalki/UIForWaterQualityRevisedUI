@@ -245,7 +245,7 @@ void main()
 	int start_time, stop_time=0, Time_taken=0;
 	int ExpDone = 0;
 	// SetTimeMin = 5;//Set the time for which data will be acquired in seconds
-	int SetTime=2;
+	int SetTime=3;
 	tdc_init();
 	// WINDOW *win = initscr();
 	// nodelay(win,TRUE);
