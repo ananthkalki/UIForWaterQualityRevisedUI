@@ -301,7 +301,8 @@ void main()
 		// if(NoActivityOnTDC==true)
 			// break;
 		// NoActivityOnTDC = false;
-		//printf("TDC measure done\n");
+		printf("TDC measure done\n");
+		printf("%f\n",tdcval);
 		if(tdcval<=100.00)
 		{
 			tdc_store(tdcval);
