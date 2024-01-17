@@ -144,11 +144,14 @@ void main_naan_dha(int sec)
     {
         if (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - time_start).count() > SetTime)
         {
+             std::cout << "Time up pa" << time_start.time_since_epoch().count() << std::endl;
             break;
         }
+        std::cout << "waiting for Time up pa" << time_start.time_since_epoch().count() << std::endl;
         tdcval = tdc_measure();
         if (tdcval <= 100.00)
         {
+            std::cout << "Calling for time store pa"<< std::endl;
             // std::cout << "TDC value is less than or equal to 100. Storing value..." << std::endl;
             tdc_store(tdcval);
         }
