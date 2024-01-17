@@ -265,8 +265,8 @@ void main()
 	printf("OVER HERE");
 	//fprintf(fptr,"Time (us),tof\n");
 	fclose(fptr);
-	// start_time = time(NULL);
-	// printf("Start time =  %d\n",time(NULL));
+	start_time = time(NULL);
+	printf("Start time =  %d\n",time(NULL));
 
 	while(1)
 	{
