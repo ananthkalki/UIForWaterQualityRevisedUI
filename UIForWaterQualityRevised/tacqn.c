@@ -209,14 +209,7 @@ double tdc_measure()
 	//printf("Waiting for measurement\n");
 	while(digitalRead(tdc2_interu_pin))//Waiting for TDC 2 interrupt to deassert
 	{
-	   // gettimeofday(&tval_after, NULL); 	
-       // timersub(&tval_after, &tval_before, &tval_result);
-       // if (tval_result.tv_usec>200)//Detects if the TDC is idle for more than 200 microseconds (arrived by experimental testing) and breaks out
-	   // {
-		   // printf("TDC is idle fot too long!\n");
-		   // NoActivityOnTDC=true;
-		   // break;
-	   // }
+		printf("Waiting for TDC 2 interrupt to deassert\n");
 	}//;Wait for start and stop
 	//printf("Measurement done\n");
 	double calib1 = (double)tdc_long_recv(TI_TDC720x_CALIBRATION1_REG);

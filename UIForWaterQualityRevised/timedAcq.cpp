@@ -208,6 +208,7 @@ int map_peripheral(struct bcm2835_peripheral *p)
 // }
 
 void tdc_send(uint8_t addr, uint8_t value) {
+    std::cout << "sending value for tdc_measure pa"  << std::endl;
     uint8_t inst = 0x40 | (addr & 0x7F);
     uint8_t data[2];
     data[0] = inst;
