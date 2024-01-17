@@ -1,0 +1,12 @@
+{
+    "currentExperiment": "12312_17012024131721",
+    "currentExperimentPath": "/home/water/UIForWaterQualityRevisedUI/UIForWaterQualityRevised/RAW_DATA/17012024/12312_17012024131721",
+    "acquisitionDurationInSecs": 5,
+    "thresholdDeltaPeakCounts": 0.13,
+    "thresholdDeltaTotalCounts": 0.089,
+    "mu1": 0.161,
+    "mu2": 0.162,
+    "std1": 0.24,
+    "std2": 0.222,
+    "mode": "relative"
+}
