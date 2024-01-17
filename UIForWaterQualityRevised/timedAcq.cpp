@@ -87,7 +87,7 @@ double tdc_measure();
 void tdc_store(double value);
 extern C{
     void path(char letter, int clear);
-    int main(int sec);
+    void main(int sec);
 }
 
 
