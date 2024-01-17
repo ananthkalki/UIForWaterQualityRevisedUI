@@ -226,7 +226,7 @@ double tdc_measure()
 }
 void tdc_store(double value)
 {
-	FILE *fptr = fopen("/home/pi/samplesdir/export.csv","a");
+	FILE *fptr = fopen("/home/water/samplesdir/export.csv","a");
 	if(fptr == NULL)
 		printf("File open failed: %s",strerror(errno));
 	fprintf(fptr,"%f\n",value); //fprintf(fptr,"%lu,%f\n",getMicrotime(),value);
@@ -258,7 +258,7 @@ void main()
 	time_t time_start = time(NULL);
 
 	printf("%d\n",SetTime);
-	FILE *fptr = fopen("/home/pi/samplesdir/export.csv","a");
+	FILE *fptr = fopen("/home/water/samplesdir/export.csv","a");
 	if(fptr == NULL)
 		printf("File open failed: %s",strerror(errno));
 	fprintf(fptr,"tof\n");
@@ -275,7 +275,7 @@ void main()
 		{
 			stop_time=time(NULL);
 			Time_taken=stop_time-start_time;
-			FILE *fptr = fopen("/home/pi/samplesdir/Report.csv","w");
+			FILE *fptr = fopen("/home/water/samplesdir/Report.csv","w");
 			if(fptr == NULL)
 				printf("File open failed: %s",strerror(errno));
 			//fprintf(fptr,"%d\n",Time_taken);
