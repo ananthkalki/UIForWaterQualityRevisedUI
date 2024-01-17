@@ -85,7 +85,11 @@ uint32_t tdc_long_recv(uint8_t addr);
 void tdc_init();
 double tdc_measure();
 void tdc_store(double value);
-void path(char letter, int clear);
+extern C{
+    void path(char letter, int clear);
+    int main(int sec);
+}
+
 
 int spi_fd;
 int spi_mode = 0x00;
@@ -101,7 +105,7 @@ char exportFileName[] = "/export.csv";
 char file_path[1000];
 uint32_t counts = 0;
 
-int main(int sec)
+void main(int sec)
 {
     int ExpDone = 0;
     int SetTime = sec;
@@ -145,7 +149,6 @@ int main(int sec)
         i = 0;
     }
 
-    return 0;
 }
 
 void path(char letter, int clear)

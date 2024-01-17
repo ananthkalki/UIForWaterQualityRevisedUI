@@ -45,7 +45,9 @@ class Processor:
         print("Check this out",SampleCSVFilepath)
         libCalc = CDLL("./timedAcq_new.so")
         for i in range(0, len(SampleCSVFilepath)):
+            libCalc.path.argtypes = [c_char, c_int]
             libCalc.path(ord(SampleCSVFilepath[i]), 0)
+            libCalc.path.restype = None
         libCalc.path(ord('\0'), 1)
         libCalc.main(self.samplingTimeInSeconds)
         self.BuzzerSound()
