@@ -2,13 +2,11 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
-#include <sys/mman.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <malloc.h>
 #include <string.h>
 #include <errno.h>
 #include <stdint.h>
+#include <wiringPi.h>
 #include <stdio.h>
 #include <ncurses.h>
 #include <time.h>
@@ -16,9 +14,7 @@
 #include <sys/time.h>
 #include <chrono>
 #include <ctime>
-#include <cstring>
-#include <unistd.h>
-#include <sys/ioctl.h>
+
 // /************************************************************
 // * TI TDC720x REGISTER SET ADDRESSES
 // ************************************************************/
