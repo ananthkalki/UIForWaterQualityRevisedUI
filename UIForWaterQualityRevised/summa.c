@@ -39,7 +39,12 @@ int main() {
     std::strftime(timeString, sizeof(timeString), "%Y-%m-%d %H:%M:%S", std::localtime(&currentTime));
 
     // Print the current time
-    std::cout << "Current Time: "<<GPIO_READ(tdc2_interu_pin) << std::endl;
+    // Read the state of the GPIO pin
+    int gpioState = GPIO_READ(tdc2_interu_pin);
+    // Print the GPIO state and the current time
+    std::cout << "GPIO State: " << gpioState << std::endl;
+    std::cout << "Current Time: " << timeString << std::endl;
+
 
     return 0;
 }
